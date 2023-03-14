@@ -12,8 +12,15 @@ export default function users(state = INITIAL_STATE, action) {
         case Types.GET_USER_SUCCESS: {
             return {...state, items: action.payload.items}
         }
+        case Types.USERS_ERROR: {
+            return {
+                ...state,
+                error: action.payload.error
+            }
+        }
     
         default:
             return {...state}
     }
 }
+

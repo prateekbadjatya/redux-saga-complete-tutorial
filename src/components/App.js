@@ -1,6 +1,10 @@
 import { Component, useEffect } from "react";
 import { connect, useDispatch } from "react-redux";
-import { getUserRequest } from "../redux/actions/users";
+import {
+  getUserRequest,
+  createUserrequest,
+  deleteUserrequest,
+} from "../redux/actions/users";
 // function* testing() {
 //   // under the hoop the takeEvery saga is runnung in while true loop and constantly watching all the saga
 //  while(true) {
@@ -49,7 +53,11 @@ class App extends Component {
   //   // this.getUser = this.props.getUserRequest.bind(this);
   // }
   componentDidMount() {
-    this.props.getUserRequest()
+    this.props.getUserRequest();
+    this.props.createUserrequest({
+      firstName: "Prateek",
+      lastName: "Badjatya",
+    });
   }
   render() {
     return (
@@ -62,4 +70,6 @@ class App extends Component {
 
 export default connect(null, {
   getUserRequest,
+  createUserrequest,
+  deleteUserrequest,
 })(App);
